@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 @click.command()
-@click.option('--filename', help='create a file name')
+@click.option('--filename', required=True, help='create a file name')
 def create(filename):
     """ Command to create a file"""
     if os.path.exists(filename):

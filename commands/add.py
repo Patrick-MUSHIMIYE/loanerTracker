@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 @click.command()
-@click.option('--filename', help='Inventory file name')
+@click.option('--filename', help='file name')
 @click.option('--id', required=True, type=int, help='Laptop ID')
 @click.option('--username', required=True, help='username')
 @click.option('--sn', required=True, type=int, help='Serial Number')
@@ -20,7 +20,7 @@ def add(filename, id, username, sn):
         click.echo("Error: ID or Serial Number already exists!")
         return
 
-    new_row = {'ID': id, 'Username': username, 'SerialNumber': sn, 'Status': 'Available'}
+    new_row = {'ID': id, 'Username': username, 'SerialNumber': sn}
     df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
     df.to_csv(filename, index=False)
     click.echo(f"laptop {id} added to the system")
