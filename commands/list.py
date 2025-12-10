@@ -6,6 +6,7 @@ import os
 @click.command(name='list')
 @click.option('--filename', required=True, help='file name')
 def list_items(filename):
+
     """List all laptops in the system"""
     if not os.path.exists(filename):
         click.echo(f"Error: Filename {filename} does not exist!")
@@ -18,7 +19,7 @@ def list_items(filename):
         return
 
 
-    click.echo("\n list of All Loaner laptop in the system:")
+    click.echo("\nlist of All Loaner laptop in the system:")
     click.echo("-" * 80)
     for _, row in df.iterrows():
         click.echo(f"ID: {row['ID']}, Username: {row['Username']}, SN: {row['SerialNumber']}")

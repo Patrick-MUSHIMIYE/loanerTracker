@@ -6,7 +6,7 @@ import os
 @click.option('--filename', help='file name')
 @click.option('--id', required=True, type=int, help='Laptop ID')
 @click.option('--username', required=True, help='username')
-@click.option('--sn', required=True, type=int, help='Serial Number')
+@click.option('--sn', required=True, type=str, help='Serial Number')
 def add(filename, id, username, sn):
     """Add a new laptop to the system"""
     if not os.path.exists(filename):
